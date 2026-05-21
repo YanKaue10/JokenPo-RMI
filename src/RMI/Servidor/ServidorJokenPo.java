@@ -1,9 +1,17 @@
-package Logica;
+package RMI.Servidor;
 
 import Enuns.Jogada;
 import Enuns.Resultado;
+import RMI.Interface.JokenPoService;
 
-public class Partida {
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+public class ServidorJokenPo extends UnicastRemoteObject implements JokenPoService {
+
+    protected ServidorJokenPo() throws RemoteException {
+        super();
+    }
     private Jogada jogador1;
     private Jogada jogador2;
     private int nmrVitoria =0;
@@ -65,3 +73,5 @@ public class Partida {
         this.jogador2 = jogador2;
     }
 }
+
+

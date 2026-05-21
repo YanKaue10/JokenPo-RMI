@@ -2,7 +2,7 @@ import Enuns.Jogada;
 
 import java.util.Scanner;
 
-public class JokenPo{
+public class JokenPoMain {
     public static void main(String[] args) {
     }
     }
