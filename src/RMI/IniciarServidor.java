@@ -1,13 +1,12 @@
-package RMI.Servidor;
+package RMI;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class IniciarServidor {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             System.setProperty("java.rmi.server.hostname", "conectar o endereço ip da máquina");
-
             ServidorJokenPo servidorJokenPo = new ServidorJokenPo();
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.rebind("JokenPo", servidorJokenPo);

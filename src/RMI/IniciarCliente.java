@@ -1,7 +1,6 @@
-package RMI.Cliente;
+package RMI;
 
 import Enuns.Jogada;
-import RMI.Interface.JokenPoService;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -10,7 +9,6 @@ import java.util.Scanner;
 public class IniciarCliente {
     public static void main(String[] args) {
         try {
-
             Registry registry = LocateRegistry.getRegistry("ip da maquina", 1099);
             JokenPoService jokenPoService = (JokenPoService) registry.lookup("JokenPo");
 
@@ -28,16 +26,16 @@ public class IniciarCliente {
             System.out.println("Digite uma opção desejada: ");
             System.out.println("");
             int jogada = sc.nextInt();
-
+            Jogada numeroJogada = null;
             switch (jogada) {
                 case 1:
-                    System.out.println("Jogador escolheu: " + Jogada.PEDRA);
+                        numeroJogada = Jogada.PEDRA;
                     break;
                 case 2:
-                    System.out.println("Jogador escolheu: " + Jogada.PAPEL);
+                        numeroJogada = Jogada.PAPEL;
                     break;
                 case 3:
-                    System.out.println("Jogador escolheu: " + Jogada.TESOURA);
+                    numeroJogada = Jogada.TESOURA;
                     break;
                 case 4:
                     System.out.println("Jogador está saindo do jogo..");
@@ -46,17 +44,19 @@ public class IniciarCliente {
                     System.out.println("Opção Inválida");
                     break;
             }
-            Jogada numeroJogada = null;
             if (nmrJogador == 1) {
-                jokenPoService.setJogador1(numeroJogada);
+                jokenPoService.sincronizarJogada(numeroJogada);
                 System.out.println("Jogador " + nmrJogador + "jogou : " + numeroJogada);
             } else {
-                jokenPoService.setJogador2(numeroJogada);
+                jokenPoService.sincronizarJogada(numeroJogada);
                 System.out.println("Jogador " + nmrJogador + "jogou : " + numeroJogada);
             }
+            System.out.println(jokenPoService.vencedorPartida());
+            System.out.println(jokenPoService.placar());
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 }
 
