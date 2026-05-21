@@ -11,7 +11,7 @@ public class IniciarServidor {
             ServidorJokenPo servidorJokenPo = new ServidorJokenPo();
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.rebind("JokenPo", servidorJokenPo);
-            System.out.println("IniciarServidor iniciado!");
+            System.out.println("Servidor iniciado!");
         } catch (Exception e) {
             e.printStackTrace();
         }
