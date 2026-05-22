@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class IniciarCliente {
     public static void main(String[] args) {
         try {
-            Registry registry = LocateRegistry.getRegistry("ip da maquina", 1099);
+            Registry registry = LocateRegistry.getRegistry("172.16.19.2", 1099);
             JokenPoService jokenPoService = (JokenPoService) registry.lookup("JokenPo");
 
             Scanner sc = new Scanner(System.in);
@@ -24,7 +24,6 @@ public class IniciarCliente {
             System.out.println("3 - Tesoura");
             System.out.println("4 - Sair");
             System.out.println("Digite uma opção desejada: ");
-            System.out.println("");
             int jogada = sc.nextInt();
             Jogada numeroJogada = null;
             switch (jogada) {
@@ -46,10 +45,10 @@ public class IniciarCliente {
             }
             if (nmrJogador == 1) {
                 jokenPoService.sincronizarJogada(numeroJogada);
-                System.out.println("Jogador " + nmrJogador + "jogou : " + numeroJogada);
+                System.out.println("Jogador " + nmrJogador + " jogou : " + numeroJogada);
             } else {
                 jokenPoService.sincronizarJogada(numeroJogada);
-                System.out.println("Jogador " + nmrJogador + "jogou : " + numeroJogada);
+                System.out.println("Jogador " + nmrJogador + " jogou : " + numeroJogada);
             }
             System.out.println(jokenPoService.vencedorPartida());
             System.out.println(jokenPoService.placar());
