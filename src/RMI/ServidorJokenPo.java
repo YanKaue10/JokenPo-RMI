@@ -69,7 +69,7 @@ public class ServidorJokenPo extends UnicastRemoteObject implements JokenPoServi
         if (nmrVitoria > nmrDerrota) {
             return "Jogador 1 venceu";
         } else if (nmrDerrota > nmrVitoria) {
-            return "Jogador 2 venceu a rodada";
+            return "Jogador 2 venceu";
         } else {
             return "Empate";
         }
