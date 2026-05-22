@@ -67,7 +67,7 @@ public class ServidorJokenPo extends UnicastRemoteObject implements JokenPoServi
     public String vencedorPartida() {
         System.out.println("Resultado:");
         if (nmrVitoria > nmrDerrota) {
-            return "Jogador 1 venceu a rodada";
+            return "Jogador 1 venceu";
         } else if (nmrDerrota > nmrVitoria) {
             return "Jogador 2 venceu a rodada";
         } else {
