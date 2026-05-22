@@ -42,17 +42,18 @@ public class ServidorJokenPo extends UnicastRemoteObject implements JokenPoServi
         }
     }
 
-    public void quantidadeRodadas() {
+    public String quantidadeRodadas() {
         Resultado resultado = resultadoPartida();
+        StringBuilder sb = new StringBuilder();
         // StrinbBuilder... Configuar.
         if (resultado.equals(Resultado.VITORIA)) {
-            System.out.println("Rodada " + rodadaAtual + ": " + "Jogador 1 venceu");
+            sb.append("Rodada: ").append(rodadaAtual).append( " Jogador 1 venceu");
             nmrVitoria++;
         } else if (resultado.equals(Resultado.DERROTA)) {
-            System.out.println("Rodada " + rodadaAtual + ": " + "Jogador 2 venceu");
+            sb.append("Rodada: ").append(rodadaAtual).append( " Jogador 2 venceu");
             nmrDerrota++;
         } else {
-            System.out.println("Rodada " + rodadaAtual + ": " + "Empate");
+            sb.append("Rodada ").append(rodadaAtual).append( " Empate!");
             nmrEmpate++;
         }
         rodadaAtual++;
@@ -62,6 +63,7 @@ public class ServidorJokenPo extends UnicastRemoteObject implements JokenPoServi
             vencedorPartida();
             placar();
         }
+        return sb.toString();
     }
 
     public String vencedorPartida() {

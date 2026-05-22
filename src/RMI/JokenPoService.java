@@ -12,7 +12,7 @@ public interface JokenPoService extends Remote {
 
     Resultado resultadoPartida() throws RemoteException;
 
-    void quantidadeRodadas() throws RemoteException;
+    String quantidadeRodadas() throws RemoteException;
 
     String vencedorPartida() throws RemoteException;
 

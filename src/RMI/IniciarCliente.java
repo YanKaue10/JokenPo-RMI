@@ -50,6 +50,7 @@ public class IniciarCliente {
                 jokenPoService.sincronizarJogada(numeroJogada);
                 System.out.println("Jogador " + nmrJogador + " jogou : " + numeroJogada);
             }
+            System.out.println(jokenPoService.quantidadeRodadas());
             System.out.println(jokenPoService.vencedorPartida());
             System.out.println(jokenPoService.placar());
         } catch (Exception e) {
