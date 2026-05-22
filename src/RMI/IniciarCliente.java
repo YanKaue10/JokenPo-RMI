@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class IniciarCliente {
     public static void main(String[] args) {
         try {
-            Registry registry = LocateRegistry.getRegistry("172.16.19.2", 1099);
+            Registry registry = LocateRegistry.getRegistry("endereço de ip da máquina", 1099);
             JokenPoService jokenPoService = (JokenPoService) registry.lookup("JokenPo");
 
             Scanner sc = new Scanner(System.in);

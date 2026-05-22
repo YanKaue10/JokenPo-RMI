@@ -6,7 +6,7 @@ import java.rmi.registry.Registry;
 public class IniciarServidor {
     public static void main(String[] args) {
         try {
-            System.setProperty("java.rmi.server.hostname", "172.16.19.2");
+            System.setProperty("java.rmi.server.hostname", "endereço ip da maquina");
             ServidorJokenPo servidorJokenPo = new ServidorJokenPo();
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.rebind("JokenPo", servidorJokenPo);
