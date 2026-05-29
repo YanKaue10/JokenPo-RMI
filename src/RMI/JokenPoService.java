@@ -8,13 +8,9 @@ import java.rmi.RemoteException;
 
 public interface JokenPoService extends Remote {
 
-    void sincronizarJogada(Jogada jogada) throws RemoteException;
+    void registrarJogador(int numeroJogador) throws RemoteException;
 
-    Resultado resultadoPartida() throws RemoteException;
+    String jogar(int numeroJogador, Jogada jogada) throws RemoteException;
 
-    String quantidadeRodadas() throws RemoteException;
-
-    String vencedorPartida() throws RemoteException;
-
-    String placar() throws RemoteException;
+    String obterPlacar() throws RemoteException;
 }
